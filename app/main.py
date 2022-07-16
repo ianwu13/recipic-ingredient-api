@@ -1,7 +1,13 @@
 from flask import Flask, jsonify, request
  
 app = Flask(__name__)
+
+
+@app.route("/")
+def setName():
+    return "getted"
  
+'''
 @app.route("/", methods=['GET', 'POST'])
 def setName():
     if request.method=='POST':
@@ -10,3 +16,4 @@ def setName():
         return jsonify(str("Successfully stored  " + str(data)))
     else:
         return "getted"
+'''
