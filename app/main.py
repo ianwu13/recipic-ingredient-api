@@ -1,7 +1,12 @@
-from flask import Flask
+from flask import Flask, jsonify, request
  
 app = Flask(__name__)
  
 @app.route("/", methods=['GET', 'POST'])
-def home_view():
-    return "<h1>Welcome to Geeks for Geeks</h1>"
+def setName():
+    if request.method=='POST':
+        posted_data = request.get_json()
+        data = posted_data['data']
+        return jsonify(str("Successfully stored  " + str(data)))
+    else:
+        return "getted"
